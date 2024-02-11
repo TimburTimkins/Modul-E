@@ -1,35 +1,21 @@
-class EllApp {
-  constructor(name, connection) {
-    this.name = name;
-    this.connection = function () {
-      if (connection === true) {
-        console.log(`${this.name} включен`);
-      } else {
-        console.log(`${this.name} выключен`);
-      }
-    };
+const auto = {
+
+ model: "A5",
+ category: "B",
+ price: "30000",
+
+}
+const moto = Object.create(auto);
+
+moto.sidecar = "Возможна установка";
+
+function task1(specification){
+  for (let key in specification) {
+    if (specification.hasOwnProperty(key)) {
+     console.log(`${key}: ${specification[key]}`)
+    }
   }
 }
 
-class KitchenApp extends EllApp {
-  constructor(color, name, connection) {
-    super(name, connection);
-    this.color = color;
-  }
-}
-
-class BedroomApp extends EllApp {
-  constructor(diagonal, name, connection) {
-    super(name, connection);
-    this.diagonal = diagonal;
-  }
-}
-
-const fridge = new KitchenApp(color = 'Серый', name = 'Спутник', connection = true);
-const tv = new BedroomApp(diagonal = '50 сантиметров', name = 'Рекорд', connection = false);
-
-fridge.connection();
-console.log(fridge);
-
-tv.connection();
-console.log(tv);
+task1(moto)
+task1(auto)
